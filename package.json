@@ -11,6 +11,7 @@
     "test": "jest --watchAll --no-cache --detectOpenHandles",
     "clean": "del-cli ./build/*"
   },
+  
   "author": "M-adeelnasir",
   "license": "ISC",
   "devDependencies": {
