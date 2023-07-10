@@ -1,0 +1,12 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/fit-visitor-168416/auth', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/fit-visitor-168416/auth']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['compute', 'instances', 'update-container', 'auth-instance', '--zone', 'us-central1-a', '--container-image', 'gcr.io/fit-visitor-168416/auth']
+
+images:
+  - 'gcr.io/fit-visitor-168416/auth'
